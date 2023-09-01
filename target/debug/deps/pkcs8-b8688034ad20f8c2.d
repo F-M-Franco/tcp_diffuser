@@ -1,0 +1,12 @@
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/pkcs8-b8688034ad20f8c2.rmeta: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/private_key_info.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/version.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/../README.md
+
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/libpkcs8-b8688034ad20f8c2.rlib: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/private_key_info.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/version.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/../README.md
+
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/pkcs8-b8688034ad20f8c2.d: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/private_key_info.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/version.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/../README.md
+
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/lib.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/error.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/private_key_info.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/traits.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/version.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/pkcs8-0.10.2/src/../README.md:

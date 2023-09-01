@@ -4,6 +4,7 @@ use std::io::Write;
 use std::sync::{Mutex, Arc, mpsc::Receiver};
 use std::thread::{JoinHandle, self};
 use std::time;
+use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
 
 //Child thread which handles incoming messages and diffuses them back to the users
 //Also handles the processing of commands as they are treated as messages before reaching this thread
@@ -14,10 +15,12 @@ const COMM_CODE_ACK: u8 = 103;
 const COMM_CODE_STOP: u8 = 104;
 const COMM_CODE_INVALID_COMMAND: u8 = 0;
 
-pub fn gen_diff(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, r_diffuser: Receiver<(usize, String)>, stop: Arc<Mutex<bool>>) -> JoinHandle<()>{
+pub fn gen_diff(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, r_diffuser: Receiver<(usize, String)>, stop: Arc<Mutex<bool>>, priv_key: Arc<Mutex<RsaPrivateKey>>, pub_key: Arc<Mutex<RsaPublicKey>>, keys: Arc<Mutex<HashMap<usize, RsaPublicKey>>>) -> JoinHandle<()>{
     thread::spawn(move || {
         'outer: loop{
             let (tx_id, mut msg) = r_diffuser.recv().unwrap();
+
+            //TODO: Decrypt messeage
 
             if msg.len()>2 && msg[0..=1] == *"//"{
                 match handle_command(msg, &streams, tx_id){

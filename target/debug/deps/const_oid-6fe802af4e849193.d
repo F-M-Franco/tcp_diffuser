@@ -1,0 +1,11 @@
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/const_oid-6fe802af4e849193.rmeta: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/checked.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/arcs.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/encoder.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/parser.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/../README.md
+
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/const_oid-6fe802af4e849193.d: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/checked.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/arcs.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/encoder.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/parser.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/../README.md
+
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/lib.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/checked.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/arcs.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/encoder.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/error.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/parser.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/const-oid-0.9.5/src/../README.md:

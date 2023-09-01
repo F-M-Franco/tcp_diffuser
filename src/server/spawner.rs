@@ -3,6 +3,8 @@ use std::net::{TcpStream, TcpListener};
 use std::sync::{Mutex, Arc, mpsc, mpsc::Sender};
 use std::thread::JoinHandle;
 use std::vec;
+use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
+use rand;
 use super::{diffuser, user_listener};
 
 //The spawner thread is also the main thread 
@@ -13,18 +15,24 @@ pub fn start(addr: &str){
     
     let streams: Arc<Mutex<HashMap<usize, TcpStream>>> = Arc::new(Mutex::new(HashMap::new()));
     
+    let mut rng = rand::thread_rng();
+    let priv_key: Arc<Mutex<RsaPrivateKey>> = Arc::new(Mutex::new(RsaPrivateKey::new(&mut rng, 2048).expect("Failed to generate a key")));
+    let pub_key: Arc<Mutex<RsaPublicKey>> = Arc::new(Mutex::new(RsaPublicKey::from(&*priv_key.lock().unwrap())));
+   
+    let keys: Arc<Mutex<HashMap<usize, RsaPublicKey>>> = Arc::new(Mutex::new(HashMap::new()));
+
     let stop = Arc::new(Mutex::new(false));
 
     //Invoking clone on Arc produces a new Arc instance, which points to the same allocation on the heap as the source.
-    let diffuser = diffuser::gen_diff(streams.clone(), r_difusser, stop.clone()); 
+    let diffuser = diffuser::gen_diff(streams.clone(), r_difusser, stop.clone(), priv_key.clone(), pub_key.clone()); 
     let mut usr_handler_threads = vec![];
 
-    usr_handler_threads = listen(streams, stop.clone(), addr, t_usr_handler, usr_handler_threads);
+    usr_handler_threads = listen(streams, stop.clone(), addr, t_usr_handler, usr_handler_threads, pub_key.clone());
 
     join_threads(diffuser, usr_handler_threads);
 }
 
-fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>, addr: &str, t_usr_handler: Sender<(usize, String)>, mut usr_handler_threads: Vec<JoinHandle<()>>) -> Vec<JoinHandle<()>>{
+fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>, addr: &str, t_usr_handler: Sender<(usize, String)>, mut usr_handler_threads: Vec<JoinHandle<()>>, pub_key: Arc<Mutex<RsaPublicKey>>, keys: Arc<Mutex<HashMap<usize, RsaPublicKey>>>) -> Vec<JoinHandle<()>>{
     let listener = TcpListener::bind(addr).unwrap();
     listener.set_nonblocking(true).unwrap();
     
@@ -34,9 +42,14 @@ fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>
         if *stop.lock().unwrap(){
             break 'outer;
         }
-        
+
         match stream_res{
             Ok(new_stream) => {
+                let user_pub_key = new_stream.read(); //TODO: Recieves public key
+                new_stream.write(pub_key.lock().unwrap()); //TODO: Sends public key
+
+                (*keys.lock().unwrap()).insert(id_counter, user_pub_key);
+
                 streams.lock().unwrap().insert(id_counter, new_stream.try_clone().unwrap());                
                 usr_handler_threads.push(user_listener::gen_usr_handler(new_stream, t_usr_handler.clone(), stop.clone(), id_counter));
                 

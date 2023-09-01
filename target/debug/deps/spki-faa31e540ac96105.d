@@ -1,0 +1,12 @@
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/spki-faa31e540ac96105.rmeta: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/algorithm.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/spki.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/../README.md
+
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/libspki-faa31e540ac96105.rlib: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/algorithm.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/spki.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/../README.md
+
+/home/francoperez/Escritorio/tcp_diffuser/target/debug/deps/spki-faa31e540ac96105.d: /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/lib.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/algorithm.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/error.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/spki.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/traits.rs /home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/../README.md
+
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/lib.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/algorithm.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/error.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/spki.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/traits.rs:
+/home/francoperez/.cargo/registry/src/github.com-1ecc6299db9ec823/spki-0.7.2/src/../README.md:

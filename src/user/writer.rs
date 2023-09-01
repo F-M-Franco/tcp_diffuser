@@ -1,6 +1,8 @@
 use std::net::TcpStream;
 use std::io::Write;
 use std::sync::{Arc, Mutex};
+use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
+use rand;
 use super::reader;
 
 // Writer thread is also the main thread
@@ -9,6 +11,11 @@ use super::reader;
 pub fn connect(addr: &str){
     let stream = TcpStream::connect(addr).unwrap();
     
+    let mut rng = rand::thread_rng();
+    let bits = 2048;
+    let priv_key = RsaPrivateKey::new(&mut rng, bits).expect("failed to generate a key");
+    stream.write();
+
     let stop = Arc::new(Mutex::new(false));
     
     let reader = reader::gen_reader(stream.try_clone().unwrap(), stop.clone()); //try_clone => The returned TcpStream is a reference to the same stream that this object references. Both handles will read and write the same stream of data, and options set on one stream will be propagated to the other stream.
