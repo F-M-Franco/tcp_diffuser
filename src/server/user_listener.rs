@@ -28,7 +28,7 @@ pub fn gen_usr_handler(mut stream: TcpStream, t_usr_handler: Sender<(usize, Stri
                         Err(_) => (), //Error occures only when handling a STOP command called by a different connection
                     }
                 },
-                //FIXME: If the user/peer dies the error arm should trigger due to a connection error when trying to read from a non existant client
+                // FIXME: If the user/peer dies the error arm should trigger due to a connection error when trying to read from a non existant client
                 //To handle the error we send a message to the diffuser using the command prefix of '//'
                 Err(_) => { 
                     t_usr_handler.send((id, String::from("//FATAL.CONN.ERROR"))).unwrap();

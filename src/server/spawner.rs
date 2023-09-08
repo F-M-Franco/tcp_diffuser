@@ -24,10 +24,10 @@ pub fn start(addr: &str){
     let stop = Arc::new(Mutex::new(false));
 
     //Invoking clone on Arc produces a new Arc instance, which points to the same allocation on the heap as the source.
-    let diffuser = diffuser::gen_diff(streams.clone(), r_difusser, stop.clone(), priv_key.clone(), pub_key.clone()); 
+    let diffuser = diffuser::gen_diff(streams.clone(), r_difusser, stop.clone(), priv_key.clone(), keys.clone()); 
     let mut usr_handler_threads = vec![];
 
-    usr_handler_threads = listen(streams, stop.clone(), addr, t_usr_handler, usr_handler_threads, pub_key.clone());
+    usr_handler_threads = listen(streams, stop, addr, t_usr_handler, usr_handler_threads, pub_key, keys);
 
     join_threads(diffuser, usr_handler_threads);
 }
@@ -45,8 +45,10 @@ fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>
 
         match stream_res{
             Ok(new_stream) => {
-                let user_pub_key = new_stream.read(); //TODO: Recieves public key
-                new_stream.write(pub_key.lock().unwrap()); //TODO: Sends public key
+                let mut user_pub_key = [0; 2048]; 
+                // FIXME: new_stream.read(user_pub_key);
+                // TODO: user_pub_key to RsaPublicKey
+                new_stream.write(pub_key.lock().unwrap());
 
                 (*keys.lock().unwrap()).insert(id_counter, user_pub_key);
 
