@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::net::{TcpStream, TcpListener};
 use std::sync::{Mutex, Arc, mpsc, mpsc::Sender};
 use std::thread::JoinHandle;
+use std::io::{Write, Read};
 use std::vec;
 use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
 use rand;
@@ -32,7 +33,7 @@ pub fn start(addr: &str){
     join_threads(diffuser, usr_handler_threads);
 }
 
-fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>, addr: &str, t_usr_handler: Sender<(usize, String)>, mut usr_handler_threads: Vec<JoinHandle<()>>, pub_key: Arc<Mutex<RsaPublicKey>>, keys: Arc<Mutex<HashMap<usize, RsaPublicKey>>>) -> Vec<JoinHandle<()>>{
+fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>, addr: &str, t_usr_handler: Sender<(usize, &[u8])>, mut usr_handler_threads: Vec<JoinHandle<()>>, pub_key: Arc<Mutex<RsaPublicKey>>, keys: Arc<Mutex<HashMap<usize, RsaPublicKey>>>) -> Vec<JoinHandle<()>>{
     let listener = TcpListener::bind(addr).unwrap();
     listener.set_nonblocking(true).unwrap();
     
@@ -45,10 +46,11 @@ fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>
 
         match stream_res{
             Ok(new_stream) => {
-                let mut user_pub_key = [0; 2048]; 
-                // FIXME: new_stream.read(user_pub_key);
+                let mut user_pub_key: [u8; 2048] = [0; 2048]; 
+                new_stream.read(&mut user_pub_key);
                 // TODO: user_pub_key to RsaPublicKey
-                new_stream.write(pub_key.lock().unwrap());
+                // TODO: pub_key to &[u8]
+                new_stream.write(&*pub_key.lock().unwrap());
 
                 (*keys.lock().unwrap()).insert(id_counter, user_pub_key);
 
