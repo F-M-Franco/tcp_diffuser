@@ -7,7 +7,7 @@ use std::vec;
 use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
 use rand;
 use super::{diffuser, user_listener};
-
+use serde::{Serialize, Deserialize};
 //The spawner thread is also the main thread 
 //It manages incoming connections as well as joining the child threads for program closure
 
@@ -50,6 +50,8 @@ fn listen(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, stop: Arc<Mutex<bool>>
                 new_stream.read(&mut user_pub_key);
                 // TODO: user_pub_key to RsaPublicKey
                 // TODO: pub_key to &[u8]
+                (*pub_key.lock().unwrap());
+                    
                 new_stream.write(&*pub_key.lock().unwrap());
 
                 (*keys.lock().unwrap()).insert(id_counter, user_pub_key);

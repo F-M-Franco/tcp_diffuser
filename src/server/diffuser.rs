@@ -45,15 +45,6 @@ pub fn gen_diff(streams: Arc<Mutex<HashMap<usize, TcpStream>>>, r_diffuser: Rece
     })  
 }
 
-fn check_validity(tx_id: usize, keys: &Arc<Mutex<HashMap<usize, RsaPublicKey>>>, msg: &[u8]) -> bool{
-    
-
-    match (*keys.lock().unwrap()).get(&tx_id).unwrap().verify(scheme, hashed, sig){
-        Ok(_) => return true,
-        Err(_) => return false,
-    }
-}
-
 fn diffuse(msg: String, streams: &Arc<Mutex<HashMap<usize, TcpStream>>>, tx_id: usize, keys: &Arc<Mutex<HashMap<usize, RsaPublicKey>>>, priv_key: &Arc<Mutex<RsaPrivateKey>>){
     msg = format!("{}: {}", tx_id, msg);
 
